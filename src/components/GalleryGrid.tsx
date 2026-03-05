@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Play, Heart, Trash2, AlertCircle } from "lucide-react";
 import { useQuery, useMutation } from "convex/react";
 import { api } from "../../convex/_generated/api";
-import { cn } from "@/lib/utils";
+import { cn, formatMediaUrl } from "@/lib/utils";
 import { SignInButton, SignedIn, SignedOut } from "@clerk/nextjs";
 import { useEffect, useRef, useState } from "react";
 
@@ -160,7 +160,7 @@ export default function GalleryGrid({
                                     maxHeight: '80vh',
                                 }}
                             >
-                                <VideoPlayer src={post.mediaUrl || ""} />
+                                <VideoPlayer src={formatMediaUrl(post.mediaUrl)} />
                                 <div className="absolute top-4 right-4 bg-black/40 backdrop-blur-md p-2 rounded-full z-10 text-white">
                                     <Play size={18} className="ml-0.5 fill-current" />
                                 </div>
@@ -175,7 +175,7 @@ export default function GalleryGrid({
                             >
                                 {post.mediaUrl ? (
                                     <img
-                                        src={post.mediaUrl}
+                                        src={formatMediaUrl(post.mediaUrl)}
                                         alt={post.caption || "Party memory"}
                                         className="max-h-full max-w-full w-auto h-auto object-contain transition-transform duration-700 group-hover:scale-[1.01] shadow-2xl"
                                         loading="lazy"
@@ -186,7 +186,7 @@ export default function GalleryGrid({
                                             }
                                         }}
                                         onError={(e) => {
-                                            console.error("Image failed to load:", post.mediaUrl);
+                                            console.error("Image failed to load:", formatMediaUrl(post.mediaUrl));
                                             e.currentTarget.style.display = 'none';
                                             const fallback = e.currentTarget.parentElement?.querySelector('.image-fallback');
                                             if (fallback) (fallback as HTMLElement).style.display = 'flex';

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Download, Heart } from "lucide-react";
 import type { Post } from "./GalleryGrid";
 import { useState } from "react";
+import { formatMediaUrl } from "@/lib/utils";
 
 export default function MediaModal({
     post,
@@ -36,7 +37,7 @@ export default function MediaModal({
                     <div className="flex gap-3">
                         {post.mediaUrl && (
                             <a
-                                href={post.mediaUrl}
+                                href={formatMediaUrl(post.mediaUrl)}
                                 download
                                 target="_blank"
                                 rel="noreferrer"
@@ -59,7 +60,7 @@ export default function MediaModal({
                 >
                     {post.mediaType === 'video' ? (
                         <video
-                            src={post.mediaUrl || ""}
+                            src={formatMediaUrl(post.mediaUrl)}
                             className="max-h-[85vh] max-w-full rounded-xl shadow-2xl bg-black"
                             style={{ aspectRatio: post.width && post.height ? `${post.width} / ${post.height}` : undefined }}
                             controls
@@ -72,12 +73,12 @@ export default function MediaModal({
                             className="w-full h-full flex items-center justify-center"
                         >
                             <img
-                                src={post.mediaUrl || ""}
+                                src={formatMediaUrl(post.mediaUrl)}
                                 alt={post.caption || "Full screen memory"}
                                 className="max-h-[85vh] max-w-full rounded-xl shadow-2xl object-contain"
                                 style={{ aspectRatio: post.width && post.height ? `${post.width} / ${post.height}` : undefined }}
                                 onError={(e) => {
-                                    console.error("Modal image failed to load:", post.mediaUrl);
+                                    console.error("Modal image failed to load:", formatMediaUrl(post.mediaUrl));
                                 }}
                             />
                         </motion.div>
