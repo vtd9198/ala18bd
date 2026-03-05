@@ -11,7 +11,7 @@ import confetti from "canvas-confetti";
 // Custom Disco Ball Component
 const DiscoBall = () => (
     <motion.div
-        className="relative w-24 h-24 mb-4"
+        className="relative w-20 h-20 mb-2"
         animate={{ y: [0, -5, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
     >
@@ -165,7 +165,7 @@ export default function InvitationPage() {
     };
 
     return (
-        <div className="relative min-h-[100dvh] w-full overflow-y-auto overflow-x-hidden bg-[#FDFBF7] flex flex-col items-center justify-center text-[#3E2723] py-8">
+        <div className="relative h-[100dvh] w-full overflow-hidden bg-[#FDFBF7] flex flex-col items-center justify-center text-[#3E2723] py-4">
             <AnimatePresence mode="wait">
                 {!isOpen ? (
                     <motion.div
@@ -230,14 +230,14 @@ export default function InvitationPage() {
                                 clipPath: "polygon(0% 2.5%, 2.5% 0%, 5% 2.5%, 7.5% 0%, 10% 2.5%, 12.5% 0%, 15% 2.5%, 17.5% 0%, 20% 2.5%, 22.5% 0%, 25% 2.5%, 27.5% 0%, 30% 2.5%, 32.5% 0%, 35% 2.5%, 37.5% 0%, 40% 2.5%, 42.5% 0%, 45% 2.5%, 47.5% 0%, 50% 2.5%, 52.5% 0%, 55% 2.5%, 57.5% 0%, 60% 2.5%, 62.5% 0%, 65% 2.5%, 67.5% 0%, 70% 2.5%, 72.5% 0%, 75% 2.5%, 77.5% 0%, 80% 2.5%, 82.5% 0%, 85% 2.5%, 87.5% 0%, 90% 2.5%, 92.5% 0%, 95% 2.5%, 97.5% 0%, 100% 2.5%, 100% 97.5%, 97.5% 100%, 95% 97.5%, 92.5% 100%, 90% 97.5%, 87.5% 100%, 85% 97.5%, 82.5% 100%, 80% 97.5%, 77.5% 100%, 75% 97.5%, 72.5% 100%, 70% 97.5%, 67.5% 100%, 65% 97.5%, 62.5% 100%, 60% 97.5%, 57.5% 100%, 55% 97.5%, 52.5% 100%, 50% 97.5%, 47.5% 100%, 45% 97.5%, 42.5% 100%, 40% 97.5%, 37.5% 100%, 35% 97.5%, 32.5% 100%, 30% 97.5%, 27.5% 100%, 25% 97.5%, 22.5% 100%, 20% 97.5%, 17.5% 100%, 15% 97.5%, 12.5% 100%, 10% 97.5%, 7.5% 100%, 5% 97.5%, 2.5% 100%, 0% 97.5%)"
                             }}
                         >
-                            <div className="bg-[#FDFBF7] w-full h-full flex flex-col items-center py-8 sm:py-12 px-5 sm:px-8">
+                            <div className="bg-[#FDFBF7] w-full h-full flex flex-col items-center py-4 sm:py-8 px-5 sm:px-8">
                                 <DiscoBall />
 
                                 <motion.h2
                                     initial={{ opacity: 0, scale: 0.9 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ delay: 0.3 }}
-                                    className="font-serif text-[#A62639] text-5xl sm:text-6xl font-black italic mb-2 tracking-tight"
+                                    className="font-serif text-[#A62639] text-4xl sm:text-5xl font-black italic mb-1 tracking-tight"
                                 >
                                     Party
                                 </motion.h2>
@@ -245,27 +245,27 @@ export default function InvitationPage() {
                                     initial={{ opacity: 0, scale: 0.9 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ delay: 0.5 }}
-                                    className="font-serif text-[#A62639] text-3xl sm:text-4xl mb-4 tracking-[0.1em]"
+                                    className="font-serif text-[#A62639] text-2xl sm:text-3xl mb-2 tracking-[0.1em]"
                                 >
                                     TIME
                                 </motion.h2>
 
-                                <div className="w-12 h-[2px] bg-[#A62639]/20 mb-6" />
+                                <div className="w-12 h-[2px] bg-[#A62639]/20 mb-4" />
 
-                                <div className="text-center space-y-3 mb-8">
+                                <div className="text-center space-y-2 mb-4">
                                     <p className="text-[9px] uppercase tracking-[0.4em] font-black text-[#A62639]/40">{t.celebrating}</p>
-                                    <h1 className="font-serif text-xl sm:text-2xl text-[#2C1810] font-bold leading-tight">{t.birthday}</h1>
+                                    <h1 className="font-serif text-lg sm:text-xl text-[#2C1810] font-bold leading-tight">{t.birthday}</h1>
                                 </div>
 
                                 {/* Event Details Grid */}
-                                <div className="grid grid-cols-2 gap-4 w-full mb-8 border-y border-[#A62639]/10 py-6">
+                                <div className="grid grid-cols-2 gap-4 w-full mb-4 border-y border-[#A62639]/10 py-4">
                                     <div className="flex flex-col items-center gap-1 border-r border-[#A62639]/10 text-center">
-                                        <Clock size={14} className="text-[#A62639]/60 mb-1" />
+                                        <Clock size={12} className="text-[#A62639]/60 mb-0.5" />
                                         <span className="text-[8px] uppercase tracking-widest text-[#A62639] font-bold">{t.when}</span>
                                         <p className="text-[10px] sm:text-xs font-bold text-[#3E2723]">{t.time}</p>
                                     </div>
                                     <div className="flex flex-col items-center gap-1 text-center">
-                                        <MapPin size={14} className="text-[#A62639]/60 mb-1" />
+                                        <MapPin size={12} className="text-[#A62639]/60 mb-0.5" />
                                         <span className="text-[8px] uppercase tracking-widest text-[#A62639] font-bold">{t.where}</span>
                                         <p className="text-[10px] sm:text-xs font-bold text-[#3E2723] leading-tight">{t.location}</p>
                                     </div>
@@ -275,13 +275,13 @@ export default function InvitationPage() {
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     transition={{ delay: 0.8 }}
-                                    className="flex flex-col items-center gap-1 mb-8 text-center"
+                                    className="flex flex-col items-center gap-1 mb-4 text-center"
                                 >
                                     <span className="text-[8px] uppercase tracking-widest text-[#A62639]/60 font-bold">{t.dressCodeLabel}</span>
                                     <p className="text-[10px] sm:text-xs font-bold text-[#3E2723] uppercase tracking-[0.2em]">{t.dressCodeValue}</p>
                                 </motion.div>
 
-                                <div className="mb-10 w-full px-2">
+                                <div className="mb-4 w-full px-2">
                                     <div className="flex justify-center items-end gap-3 sm:gap-4">
                                         {[
                                             { label: "D", value: timeLeft.days },
@@ -302,9 +302,9 @@ export default function InvitationPage() {
                                 </div>
 
                                 {/* Magnetic Entry Button */}
-                                <div className="w-full mt-auto mb-14 min-h-[56px]">
+                                <div className="w-full mt-auto mb-4 min-h-[48px]">
                                     {!isLoaded ? (
-                                        <div className="w-full h-12 bg-[#A62639]/10 rounded-full animate-pulse" />
+                                        <div className="w-full h-11 bg-[#A62639]/10 rounded-full animate-pulse" />
                                     ) : (
                                         <div
                                             ref={buttonRef}
@@ -318,7 +318,7 @@ export default function InvitationPage() {
                                                         style={{ x, y }}
                                                         whileHover={{ scale: 1.02 }}
                                                         whileTap={{ scale: 0.98 }}
-                                                        className="w-full flex items-center justify-center gap-2 bg-[#A62639] text-[#FDFBF7] h-12 sm:h-14 rounded-full font-serif text-base sm:text-lg tracking-widest shadow-xl shadow-[#A62639]/20 transition-transform active:scale-95"
+                                                        className="w-full flex items-center justify-center gap-2 bg-[#A62639] text-[#FDFBF7] h-11 sm:h-12 rounded-full font-serif text-base sm:text-lg tracking-widest shadow-xl shadow-[#A62639]/20 transition-transform active:scale-95"
                                                     >
                                                         {t.enterParty}
                                                         <ChevronRight size={18} />
@@ -331,7 +331,7 @@ export default function InvitationPage() {
                                                         style={{ x, y }}
                                                         whileHover={{ scale: 1.02 }}
                                                         whileTap={{ scale: 0.98 }}
-                                                        className="w-full flex items-center justify-center gap-2 bg-[#A62639] text-[#FDFBF7] h-12 sm:h-14 rounded-full font-serif text-base sm:text-lg tracking-widest shadow-xl shadow-[#A62639]/20 transition-transform active:scale-95"
+                                                        className="w-full flex items-center justify-center gap-2 bg-[#A62639] text-[#FDFBF7] h-11 sm:h-12 rounded-full font-serif text-base sm:text-lg tracking-widest shadow-xl shadow-[#A62639]/20 transition-transform active:scale-95"
                                                     >
                                                         {t.enterParty}
                                                         <ChevronRight size={18} />
@@ -383,7 +383,7 @@ export default function InvitationPage() {
                         <motion.button
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            className="mt-6 mb-8 text-[9px] uppercase tracking-[0.3em] font-black text-[#A62639]/50 hover:text-[#A62639] transition-colors"
+                            className="mt-2 mb-4 text-[9px] uppercase tracking-[0.3em] font-black text-[#A62639]/50 hover:text-[#A62639] transition-colors"
                             onClick={() => setIsOpen(false)}
                         >
                             {t.returnEnvelope}
