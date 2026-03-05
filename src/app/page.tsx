@@ -230,7 +230,7 @@ export default function InvitationPage() {
                                 clipPath: "polygon(0% 2.5%, 2.5% 0%, 5% 2.5%, 7.5% 0%, 10% 2.5%, 12.5% 0%, 15% 2.5%, 17.5% 0%, 20% 2.5%, 22.5% 0%, 25% 2.5%, 27.5% 0%, 30% 2.5%, 32.5% 0%, 35% 2.5%, 37.5% 0%, 40% 2.5%, 42.5% 0%, 45% 2.5%, 47.5% 0%, 50% 2.5%, 52.5% 0%, 55% 2.5%, 57.5% 0%, 60% 2.5%, 62.5% 0%, 65% 2.5%, 67.5% 0%, 70% 2.5%, 72.5% 0%, 75% 2.5%, 77.5% 0%, 80% 2.5%, 82.5% 0%, 85% 2.5%, 87.5% 0%, 90% 2.5%, 92.5% 0%, 95% 2.5%, 97.5% 0%, 100% 2.5%, 100% 97.5%, 97.5% 100%, 95% 97.5%, 92.5% 100%, 90% 97.5%, 87.5% 100%, 85% 97.5%, 82.5% 100%, 80% 97.5%, 77.5% 100%, 75% 97.5%, 72.5% 100%, 70% 97.5%, 67.5% 100%, 65% 97.5%, 62.5% 100%, 60% 97.5%, 57.5% 100%, 55% 97.5%, 52.5% 100%, 50% 97.5%, 47.5% 100%, 45% 97.5%, 42.5% 100%, 40% 97.5%, 37.5% 100%, 35% 97.5%, 32.5% 100%, 30% 97.5%, 27.5% 100%, 25% 97.5%, 22.5% 100%, 20% 97.5%, 17.5% 100%, 15% 97.5%, 12.5% 100%, 10% 97.5%, 7.5% 100%, 5% 97.5%, 2.5% 100%, 0% 97.5%)"
                             }}
                         >
-                            <div className="bg-[#FDFBF7] w-full h-full flex flex-col items-center py-4 sm:py-8 px-5 sm:px-8">
+                            <div className="bg-[#FDFBF7] w-full h-full flex flex-col items-center py-6 sm:py-10 px-5 sm:px-8">
                                 <DiscoBall />
 
                                 <motion.h2
@@ -302,7 +302,7 @@ export default function InvitationPage() {
                                 </div>
 
                                 {/* Magnetic Entry Button */}
-                                <div className="w-full mt-auto mb-4 min-h-[48px]">
+                                <div className="w-full mb-4 min-h-[48px]">
                                     {!isLoaded ? (
                                         <div className="w-full h-11 bg-[#A62639]/10 rounded-full animate-pulse" />
                                     ) : (
@@ -347,7 +347,7 @@ export default function InvitationPage() {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 1, duration: 1 }}
-                                    className="absolute bottom-2 w-full flex justify-center pointer-events-none pb-2 overflow-visible"
+                                    className="w-full flex justify-center pointer-events-none pb-4 overflow-visible mt-auto"
                                 >
                                     <div className="relative w-32 h-16 flex justify-center">
                                         {/* Left Glass */}
