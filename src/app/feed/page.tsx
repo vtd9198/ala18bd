@@ -17,7 +17,7 @@ export default function Home() {
       <header className="fixed top-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-xl border-b border-primary/10">
         <div className="max-w-md mx-auto px-6 h-20 flex justify-between items-center gap-4">
           <div className="flex flex-col">
-            <h1 className="font-serif font-bold text-lg text-primary">
+            <h1 className="font-serif font-bold text-lg text-primary leading-tight">
               Ala&apos;s 18th Birthday
             </h1>
             <p className="text-[10px] uppercase tracking-widest font-bold text-foreground/40 leading-none">Party Feed 🥂</p>
