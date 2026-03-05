@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { motion, useMotionValue, AnimatePresence } from "framer-motion";
 import { SignInButton, SignedIn, SignedOut, useUser } from "@clerk/nextjs";
 import { useEffect, useState, useRef } from "react";
