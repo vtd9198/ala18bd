@@ -164,7 +164,7 @@ export default function InvitationPage() {
     };
 
     return (
-        <div className="relative h-[100dvh] w-full overflow-hidden bg-[#FDFBF7] flex flex-col items-center justify-center text-[#3E2723]">
+        <div className="relative min-h-[100dvh] w-full overflow-y-auto overflow-x-hidden bg-[#FDFBF7] flex flex-col items-center justify-center text-[#3E2723] py-8">
             <AnimatePresence mode="wait">
                 {!isOpen ? (
                     <motion.div
@@ -172,7 +172,7 @@ export default function InvitationPage() {
                         initial={{ scale: 0.9, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         exit={{ scale: 1.1, opacity: 0 }}
-                        className="z-50 cursor-pointer flex flex-col items-center gap-8"
+                        className="z-50 cursor-pointer flex flex-col items-center gap-8 py-10"
                         onClick={() => {
                             setIsOpen(true);
                             handleConfetti();
@@ -181,7 +181,7 @@ export default function InvitationPage() {
                         {/* The Envelope */}
                         <div className="relative group">
                             <motion.div
-                                className="w-72 h-52 bg-[#A62639] rounded-lg shadow-[0_20px_50px_rgba(166,38,57,0.3)] relative overflow-hidden border border-white/10"
+                                className="w-[min(288px,80vw)] h-[min(208px,60vw)] bg-[#A62639] rounded-lg shadow-[0_20px_50px_rgba(166,38,57,0.3)] relative overflow-hidden border border-white/10"
                                 whileHover={{ y: -10 }}
                             >
                                 {/* Envelope Flap Appearance */}
@@ -192,8 +192,8 @@ export default function InvitationPage() {
                                     <span className="font-serif text-xl font-bold text-[#A62639]">A</span>
                                 </div>
 
-                                <div className="absolute bottom-6 w-full text-center">
-                                    <p className="text-[#FDFBF7]/60 text-[10px] uppercase tracking-[0.4em] font-medium">{t.envelopeLabel}</p>
+                                <div className="absolute bottom-6 w-full text-center px-4">
+                                    <p className="text-[#FDFBF7]/60 text-[10px] uppercase tracking-[0.4em] font-medium truncate">{t.envelopeLabel}</p>
                                 </div>
                             </motion.div>
 
@@ -217,26 +217,26 @@ export default function InvitationPage() {
                 ) : (
                     <motion.div
                         key="card-view"
-                        className="relative w-full max-w-sm flex flex-col items-center px-6"
+                        className="relative w-full max-w-[360px] flex flex-col items-center px-4 sm:px-6 my-auto"
                         initial={{ y: 200, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ type: "spring", damping: 20, stiffness: 100 }}
                     >
                         {/* The Invitation Card with Scalloped Border */}
                         <div
-                            className="w-full bg-[#A62639] p-2 relative shadow-[0_30px_60px_rgba(0,0,0,0.15)] overflow-hidden"
+                            className="w-full bg-[#A62639] p-2 relative shadow-[0_30px_60px_rgba(0,0,0,0.15)]"
                             style={{
-                                clipPath: "polygon(0% 5%, 5% 0%, 10% 5%, 15% 0%, 20% 5%, 25% 0%, 30% 5%, 35% 0%, 40% 5%, 45% 0%, 50% 5%, 55% 0%, 60% 5%, 65% 0%, 70% 5%, 75% 0%, 80% 5%, 85% 0%, 90% 5%, 95% 0%, 100% 5%, 100% 95%, 95% 100%, 90% 95%, 85% 100%, 80% 95%, 75% 100%, 70% 95%, 65% 100%, 60% 95%, 55% 100%, 50% 95%, 45% 100%, 40% 95%, 35% 100%, 30% 95%, 25% 100%, 20% 95%, 15% 100%, 10% 95%, 5% 100%, 0% 95%)"
+                                clipPath: "polygon(0% 2.5%, 2.5% 0%, 5% 2.5%, 7.5% 0%, 10% 2.5%, 12.5% 0%, 15% 2.5%, 17.5% 0%, 20% 2.5%, 22.5% 0%, 25% 2.5%, 27.5% 0%, 30% 2.5%, 32.5% 0%, 35% 2.5%, 37.5% 0%, 40% 2.5%, 42.5% 0%, 45% 2.5%, 47.5% 0%, 50% 2.5%, 52.5% 0%, 55% 2.5%, 57.5% 0%, 60% 2.5%, 62.5% 0%, 65% 2.5%, 67.5% 0%, 70% 2.5%, 72.5% 0%, 75% 2.5%, 77.5% 0%, 80% 2.5%, 82.5% 0%, 85% 2.5%, 87.5% 0%, 90% 2.5%, 92.5% 0%, 95% 2.5%, 97.5% 0%, 100% 2.5%, 100% 97.5%, 97.5% 100%, 95% 97.5%, 92.5% 100%, 90% 97.5%, 87.5% 100%, 85% 97.5%, 82.5% 100%, 80% 97.5%, 77.5% 100%, 75% 97.5%, 72.5% 100%, 70% 97.5%, 67.5% 100%, 65% 97.5%, 62.5% 100%, 60% 97.5%, 57.5% 100%, 55% 97.5%, 52.5% 100%, 50% 97.5%, 47.5% 100%, 45% 97.5%, 42.5% 100%, 40% 97.5%, 37.5% 100%, 35% 97.5%, 32.5% 100%, 30% 97.5%, 27.5% 100%, 25% 97.5%, 22.5% 100%, 20% 97.5%, 17.5% 100%, 15% 97.5%, 12.5% 100%, 10% 97.5%, 7.5% 100%, 5% 97.5%, 2.5% 100%, 0% 97.5%)"
                             }}
                         >
-                            <div className="bg-[#FDFBF7] w-full h-full flex flex-col items-center py-12 px-6 overflow-hidden">
+                            <div className="bg-[#FDFBF7] w-full h-full flex flex-col items-center py-8 sm:py-12 px-5 sm:px-8">
                                 <DiscoBall />
 
                                 <motion.h2
                                     initial={{ opacity: 0, scale: 0.9 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ delay: 0.3 }}
-                                    className="font-serif text-[#A62639] text-5xl md:text-6xl font-black italic mb-2 tracking-tight"
+                                    className="font-serif text-[#A62639] text-5xl sm:text-6xl font-black italic mb-2 tracking-tight"
                                 >
                                     Party
                                 </motion.h2>
@@ -244,29 +244,29 @@ export default function InvitationPage() {
                                     initial={{ opacity: 0, scale: 0.9 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ delay: 0.5 }}
-                                    className="font-serif text-[#A62639] text-4xl mb-4 tracking-[0.1em]"
+                                    className="font-serif text-[#A62639] text-3xl sm:text-4xl mb-4 tracking-[0.1em]"
                                 >
                                     TIME
                                 </motion.h2>
 
                                 <div className="w-12 h-[2px] bg-[#A62639]/20 mb-6" />
 
-                                <div className="text-center space-y-4 mb-8">
-                                    <p className="text-[10px] uppercase tracking-[0.5em] font-black text-[#A62639]/40">{t.celebrating}</p>
-                                    <h1 className="font-serif text-2xl text-[#2C1810] font-bold">{t.birthday}</h1>
+                                <div className="text-center space-y-3 mb-8">
+                                    <p className="text-[9px] uppercase tracking-[0.4em] font-black text-[#A62639]/40">{t.celebrating}</p>
+                                    <h1 className="font-serif text-xl sm:text-2xl text-[#2C1810] font-bold leading-tight">{t.birthday}</h1>
                                 </div>
 
                                 {/* Event Details Grid */}
-                                <div className="grid grid-cols-2 gap-6 w-full mb-8 border-y border-[#A62639]/10 py-6">
-                                    <div className="flex flex-col items-center gap-1 border-r border-[#A62639]/10">
-                                        <Clock size={16} className="text-[#A62639]/60 mb-1" />
-                                        <span className="text-[9px] uppercase tracking-widest text-[#A62639] font-bold">{t.when}</span>
-                                        <p className="text-xs font-bold text-[#3E2723]">{t.time}</p>
+                                <div className="grid grid-cols-2 gap-4 w-full mb-8 border-y border-[#A62639]/10 py-6">
+                                    <div className="flex flex-col items-center gap-1 border-r border-[#A62639]/10 text-center">
+                                        <Clock size={14} className="text-[#A62639]/60 mb-1" />
+                                        <span className="text-[8px] uppercase tracking-widest text-[#A62639] font-bold">{t.when}</span>
+                                        <p className="text-[10px] sm:text-xs font-bold text-[#3E2723]">{t.time}</p>
                                     </div>
-                                    <div className="flex flex-col items-center gap-1">
-                                        <MapPin size={16} className="text-[#A62639]/60 mb-1" />
-                                        <span className="text-[9px] uppercase tracking-widest text-[#A62639] font-bold">{t.where}</span>
-                                        <p className="text-xs font-bold text-[#3E2723]">{t.location}</p>
+                                    <div className="flex flex-col items-center gap-1 text-center">
+                                        <MapPin size={14} className="text-[#A62639]/60 mb-1" />
+                                        <span className="text-[8px] uppercase tracking-widest text-[#A62639] font-bold">{t.where}</span>
+                                        <p className="text-[10px] sm:text-xs font-bold text-[#3E2723] leading-tight">{t.location}</p>
                                     </div>
                                 </div>
 
@@ -274,14 +274,14 @@ export default function InvitationPage() {
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     transition={{ delay: 0.8 }}
-                                    className="flex flex-col items-center gap-1 mb-8"
+                                    className="flex flex-col items-center gap-1 mb-8 text-center"
                                 >
-                                    <span className="text-[9px] uppercase tracking-widest text-[#A62639]/60 font-bold">{t.dressCodeLabel}</span>
-                                    <p className="text-xs font-bold text-[#3E2723] uppercase tracking-widest">{t.dressCodeValue}</p>
+                                    <span className="text-[8px] uppercase tracking-widest text-[#A62639]/60 font-bold">{t.dressCodeLabel}</span>
+                                    <p className="text-[10px] sm:text-xs font-bold text-[#3E2723] uppercase tracking-[0.2em]">{t.dressCodeValue}</p>
                                 </motion.div>
 
-                                <div className="mb-14 w-full">
-                                    <div className="flex justify-center items-end gap-4">
+                                <div className="mb-10 w-full px-2">
+                                    <div className="flex justify-center items-end gap-3 sm:gap-4">
                                         {[
                                             { label: "D", value: timeLeft.days },
                                             { label: "H", value: timeLeft.hours },
@@ -289,10 +289,10 @@ export default function InvitationPage() {
                                             { label: "S", value: timeLeft.seconds },
                                         ].map((item, idx) => (
                                             <div key={idx} className="flex flex-col items-center">
-                                                <span className="font-serif text-xl text-[#3E2723] font-bold leading-none">
+                                                <span className="font-serif text-lg sm:text-xl text-[#3E2723] font-bold leading-none">
                                                     {item.value.toString().padStart(2, "0")}
                                                 </span>
-                                                <span className="text-[7px] uppercase tracking-[0.2em] text-[#A62639] mt-1 font-bold">
+                                                <span className="text-[6px] sm:text-[7px] uppercase tracking-[0.2em] text-[#A62639] mt-1 font-bold">
                                                     {item.label}
                                                 </span>
                                             </div>
@@ -301,9 +301,9 @@ export default function InvitationPage() {
                                 </div>
 
                                 {/* Magnetic Entry Button */}
-                                <div className="w-full mt-auto mb-10">
+                                <div className="w-full mt-auto mb-14 min-h-[56px]">
                                     {!isLoaded ? (
-                                        <div className="w-full h-14 bg-[#A62639]/10 rounded-full animate-pulse" />
+                                        <div className="w-full h-12 bg-[#A62639]/10 rounded-full animate-pulse" />
                                     ) : (
                                         <div
                                             ref={buttonRef}
@@ -317,10 +317,10 @@ export default function InvitationPage() {
                                                         style={{ x, y }}
                                                         whileHover={{ scale: 1.02 }}
                                                         whileTap={{ scale: 0.98 }}
-                                                        className="w-full flex items-center justify-center gap-2 bg-[#A62639] text-[#FDFBF7] h-14 rounded-full font-serif text-lg tracking-widest shadow-xl shadow-[#A62639]/20 transition-transform active:scale-95"
+                                                        className="w-full flex items-center justify-center gap-2 bg-[#A62639] text-[#FDFBF7] h-12 sm:h-14 rounded-full font-serif text-base sm:text-lg tracking-widest shadow-xl shadow-[#A62639]/20 transition-transform active:scale-95"
                                                     >
                                                         {t.enterParty}
-                                                        <ChevronRight size={20} />
+                                                        <ChevronRight size={18} />
                                                     </motion.button>
                                                 </SignInButton>
                                             </SignedOut>
@@ -330,10 +330,10 @@ export default function InvitationPage() {
                                                         style={{ x, y }}
                                                         whileHover={{ scale: 1.02 }}
                                                         whileTap={{ scale: 0.98 }}
-                                                        className="w-full flex items-center justify-center gap-2 bg-[#A62639] text-[#FDFBF7] h-14 rounded-full font-serif text-lg tracking-widest shadow-xl shadow-[#A62639]/20 transition-transform active:scale-95"
+                                                        className="w-full flex items-center justify-center gap-2 bg-[#A62639] text-[#FDFBF7] h-12 sm:h-14 rounded-full font-serif text-base sm:text-lg tracking-widest shadow-xl shadow-[#A62639]/20 transition-transform active:scale-95"
                                                     >
                                                         {t.enterParty}
-                                                        <ChevronRight size={20} />
+                                                        <ChevronRight size={18} />
                                                     </motion.button>
                                                 </Link>
                                             </SignedIn>
@@ -346,13 +346,13 @@ export default function InvitationPage() {
                                     initial={{ y: 20, opacity: 0 }}
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 1, duration: 1 }}
-                                    className="absolute bottom-4 w-full flex justify-center pointer-events-none"
+                                    className="absolute bottom-2 w-full flex justify-center pointer-events-none pb-2 overflow-visible"
                                 >
-                                    <div className="relative w-32 h-20 flex justify-center">
+                                    <div className="relative w-32 h-16 flex justify-center">
                                         {/* Left Glass */}
                                         <motion.svg
-                                            width="60" height="80" viewBox="0 0 60 80"
-                                            className="absolute left-0 mt-4"
+                                            width="45" height="60" viewBox="0 0 60 80"
+                                            className="absolute left-4"
                                             animate={{ rotate: [0, 5, 0], x: [0, 5, 0] }}
                                             transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
                                         >
@@ -364,8 +364,8 @@ export default function InvitationPage() {
 
                                         {/* Right Glass */}
                                         <motion.svg
-                                            width="60" height="80" viewBox="0 0 60 80"
-                                            className="absolute right-0 mt-4"
+                                            width="45" height="60" viewBox="0 0 60 80"
+                                            className="absolute right-4"
                                             animate={{ rotate: [0, -5, 0], x: [0, -5, 0] }}
                                             transition={{ repeat: Infinity, duration: 3, ease: "easeInOut", delay: 0.2 }}
                                         >
@@ -382,7 +382,7 @@ export default function InvitationPage() {
                         <motion.button
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            className="mt-8 text-[10px] uppercase tracking-[0.4em] font-black text-[#A62639]/50 hover:text-[#A62639] transition-colors"
+                            className="mt-6 mb-8 text-[9px] uppercase tracking-[0.3em] font-black text-[#A62639]/50 hover:text-[#A62639] transition-colors"
                             onClick={() => setIsOpen(false)}
                         >
                             {t.returnEnvelope}
