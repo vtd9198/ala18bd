@@ -9,6 +9,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "nautical-iguana-162.eu-west-1.convex.site",
+      },
+      {
+        protocol: "https",
         hostname: "img.clerk.com",
       }
     ],

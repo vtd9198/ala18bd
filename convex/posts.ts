@@ -87,7 +87,7 @@ export const listPosts = query({
 
                 return {
                     ...post,
-                    mediaUrl: `${process.env.CONVEX_SITE_URL}/getMedia?storageId=${post.storageId}`,
+                    mediaUrl: await ctx.storage.getUrl(post.storageId),
                     likeCount: likes.length,
                     isLikedByMe,
                 };
@@ -131,7 +131,7 @@ export const listUserPosts = query({
 
                 return {
                     ...post,
-                    mediaUrl: `${process.env.CONVEX_SITE_URL}/getMedia?storageId=${post.storageId}`,
+                    mediaUrl: await ctx.storage.getUrl(post.storageId),
                     likeCount: likes.length,
                     isLikedByMe,
                 };

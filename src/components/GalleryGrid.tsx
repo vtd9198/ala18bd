@@ -4,9 +4,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Play, Heart, Trash2, AlertCircle } from "lucide-react";
 import { useQuery, useMutation } from "convex/react";
 import { api } from "../../convex/_generated/api";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { SignInButton, SignedIn, SignedOut } from "@clerk/nextjs";
+import { useEffect, useRef, useState } from "react";
 
 export type Post = {
     _id: string;
@@ -45,6 +45,41 @@ const itemVariants = {
         },
     },
 };
+
+function VideoPlayer({ src }: { src: string }) {
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    video.play().catch(err => console.log("Autoplay blocked:", err));
+                } else {
+                    video.pause();
+                }
+            },
+            { threshold: 0.5 }
+        );
+
+        observer.observe(video);
+        return () => observer.disconnect();
+    }, [src]);
+
+    return (
+        <video
+            ref={videoRef}
+            src={src}
+            className="w-full h-full object-contain shadow-2xl"
+            muted
+            loop
+            playsInline
+            preload="auto"
+        />
+    );
+}
 
 export default function GalleryGrid({
     posts: initialPosts,
@@ -125,15 +160,7 @@ export default function GalleryGrid({
                                     maxHeight: '80vh',
                                 }}
                             >
-                                <video
-                                    src={post.mediaUrl || ""}
-                                    className="w-full h-full object-contain shadow-2xl"
-                                    autoPlay
-                                    muted
-                                    loop
-                                    playsInline
-                                    preload="auto"
-                                />
+                                <VideoPlayer src={post.mediaUrl || ""} />
                                 <div className="absolute top-4 right-4 bg-black/40 backdrop-blur-md p-2 rounded-full z-10 text-white">
                                     <Play size={18} className="ml-0.5 fill-current" />
                                 </div>
