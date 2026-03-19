@@ -114,7 +114,7 @@ export default function InvitationPage() {
     const t = translations[lang];
 
     // March 20, 2026 at 18:00 (6 PM) Poland time (CET -> UTC+1)
-    const eventDate = new Date("2026-03-20T18:00:00+01:00").getTime();
+    const eventDate = new Date("2026-03-20T18:30:00+01:00").getTime();
 
     useEffect(() => {
         const interval = setInterval(() => {
