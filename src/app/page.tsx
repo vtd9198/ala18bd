@@ -86,7 +86,7 @@ const translations = {
         enterParty: "VÀO BUỔI TIỆC",
         returnEnvelope: "Quay lại phong bì",
         location: "Grand Ballroom",
-        time: "20.03.2026 | 18:00",
+        time: "20.03.2026 | 18:30",
     }
 };
 
